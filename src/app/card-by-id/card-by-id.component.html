@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+  <div class="col-lg-6 col-sm-12">
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="card" *ngIf="!loading">
+        <div class="row title-card">
+          <div class="col-7">
+            <div class="title"><strong>Nome:</strong></div>
+            <p>{{ card.name }}</p>
+          </div>
+          <div class="col-5">
+            <div class="title"><strong>ID:</strong></div>
+            <p>{{ card.id }}</p>
+          </div>
+        </div>
+        <div class="title">Tipo</div>
+        <div class="types">
+          <div class="types-item" *ngFor="let type of card.types">{{ type }}</div>
+        </div>
+        <div class="mt10"></div>
+        <div class="title">
+          <strong>Ataques:</strong>
+        </div>
+        <div class="mt10"></div>
+        <div class="attacks">
+          <div class="attacks-item" *ngFor="let attack of card.attacks">
+            <div class="row">
+              <div class="col-8">
+                <div class="title"><strong>Nome:</strong></div>
+                <p>{{ attack.name }}</p>
+              </div>
+              <div class="col-4">
+                <div class="title"><strong>Dano:</strong></div>
+                <p>{{ attack.damage }}</p>
+              </div>
+              <div class="col-12">
+                <div class="title"><strong>Descrição:</strong></div>
+                <p>
+                  {{ attack.text }}
+                </p>
+              </div>
+              <div class="col-12">
+                <div class="title"><strong>Custo de mana:</strong></div>
+                <div class="types">
+                  <div class="types-item" *ngFor="let cost of attack.cost">{{ cost }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt20"></div>
+        <div class="title"><strong>Fraquezas:</strong></div>
+        <div class="types">
+          <div class="types-item" *ngFor="let item of card.weaknesses">{{ item.type }} - {{ item.value }}</div>
+        </div>
+        <div class="mt20"></div>
+        <div class="title"><strong>Resistências:</strong></div>
+        <div class="types">
+          <div class="types-item" *ngFor="let item of card.subtypes">{{ item }}</div>
+        </div>
+        <div class="mt10"></div>
+        <img [src]="card.images.large" />
+      </div>
+      <div class="mt50"></div>
+      <div class="text-center">
+        <a type="button" (click)="goToBack()" class="btn btn-warning">Voltar para a lista</a>
+      </div>
+      <div class="mt50"></div>
+  </div>
+</div>

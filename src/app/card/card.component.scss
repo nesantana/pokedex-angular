@@ -1,0 +1,49 @@
+@import '../../styles.scss';
+
+.card {
+  border: $primary 2px solid;
+  border-radius: 15px;
+  overflow: hidden;
+  display: block;
+
+  &:hover {
+    &, *:hover {
+      text-decoration: none;
+    }
+  }
+
+  .title-card {
+    p {
+      padding: 0 10px;
+      font-size: 19px;
+      line-height: 79%;
+      color: #000000;
+
+      strong {
+        display: block;
+        color: $primary;
+        font-size: 10px;
+        @extend .mt10;
+      }
+    }
+  }
+
+  .types {
+    padding: 0 10px;
+
+    &-item {
+      background: $primary-hover;
+      color: $secundary;
+      padding: 2px 10px;
+      display: inline-block;
+      font-size: 10px;
+      border-radius: 5px;
+      margin: 10px 5px 0 0;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,42 @@
+<div class="row justify-content-center">
+  <div class="col-lg-8 col-sm-12">
+    <app-search (change)="termSearch = $event"></app-search>
+  </div>
+  <div class="col-lg-12 col-sm-12">
+    <div class="types-selectors">
+      <div (click)="listAll()" class="selectors" [class]="{active: active === 'Todos'}">
+        Todos
+      </div>
+      <div *ngFor="let type of allTypes" (click)="listCardToType(type)" class="selectors" [class]="{active: active === type}">
+        {{ type }}
+      </div>
+    </div>
+  </div>
+  <app-loading *ngIf="loading"></app-loading>
+  <div class="col-lg-12 col-sm-12" *ngIf="!loading">
+    <div class="row">
+      <div *ngFor="let card of searchByTerm()" class="col-lg-4 col-sm-12">
+        <div class="mt30"></div>
+        <app-card
+          [name]="card.name"
+          [image]="card.images.large"
+          [id]="card.id"
+          [types]="card.types"
+        >
+        </app-card>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-12 col-sm-12">
+    <div class="mt50"></div>
+    <div class="text-center paginate">
+      <a type="button" *ngIf="!hasPrevButton()" (click)="paginatePrev()" class="btn btn-warning">< Voltar</a>
+      <p class="d-inline-block">
+        <strong>Pagina atual:</strong>
+        {{ paginatePage }}
+      </p>
+      <a type="button" (click)="paginateNext()" class="btn btn-warning">Avançar ></a>
+    </div>
+    <div class="mt50"></div>
+  </div>
+</div>

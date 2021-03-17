@@ -1,0 +1,16 @@
+<a class="card" routerLink="/card/{{id}}">
+  <div class="row title-card">
+    <div class="col-7">
+      <p><strong>Nome:</strong> {{ name }}</p>
+    </div>
+    <div class="col-5">
+      <p><strong>ID:</strong> {{ id }}</p>
+    </div>
+  </div>
+  <div class="types">
+    <div class="types-item" *ngFor="let type of types">{{ type }}</div>
+  </div>
+  <div class="mt10"></div>
+  <img [src]="image" />
+</a>
+
