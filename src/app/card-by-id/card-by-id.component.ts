@@ -23,11 +23,9 @@ export class CardByIdComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.id);
     this.loading = true;
     this.api.card(this.id).subscribe((res: any) => {
       this.card = res.data;
-      console.log(this.card);
       this.loading = false;
     });
   }
